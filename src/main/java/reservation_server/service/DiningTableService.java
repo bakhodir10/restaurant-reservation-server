@@ -3,8 +3,8 @@ package reservation_server.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import reservation_server.criteria.RestaurantCriteria;
 import reservation_server.domain.DiningTable;
+import reservation_server.repository.DiningTableRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,29 +14,25 @@ import java.util.Optional;
 public class DiningTableService {
 
     @Autowired
-    private DiningTableService diningTableService;
+    private DiningTableRepository diningTableRepository;
 
     public List<DiningTable> findAll() {
-        return diningTableService.findAll();
-    }
-
-    public List<DiningTable> findAll(RestaurantCriteria criteria) {
-        return diningTableService.findAll(criteria);
+        return diningTableRepository.findAll();
     }
 
     public DiningTable getOne(Long id) {
-        return this.diningTableService.getOne(id);
+        return this.diningTableRepository.getOne(id);
     }
 
     public DiningTable save(DiningTable newDiningTable) {
-        return this.diningTableService.save(newDiningTable);
+        return this.diningTableRepository.save(newDiningTable);
     }
 
     public void deleteById(Long id) {
-        this.diningTableService.deleteById(id);
+        this.diningTableRepository.deleteById(id);
     }
 
     public Optional<DiningTable> findById(Long id) {
-        return this.diningTableService.findById(id);
+        return this.diningTableRepository.findById(id);
     }
 }
