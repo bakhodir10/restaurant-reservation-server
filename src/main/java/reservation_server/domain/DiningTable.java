@@ -4,18 +4,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @NoArgsConstructor
 @Data
 @Entity
-public class Restaurant {
+public class DiningTable {
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
-    @Embedded
-    private Address address;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<DiningTable> diningTables;
+    private int capacity;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Restaurant restaurant;
 }

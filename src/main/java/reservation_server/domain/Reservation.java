@@ -15,7 +15,7 @@ public class Reservation {
     @ManyToOne
     private Time time;
     @OneToMany
-    private List<Table> tables;
+    private List<DiningTable> diningTables;
     @ManyToOne
     private User createdBy;
     @ManyToOne
