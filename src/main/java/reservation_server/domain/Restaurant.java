@@ -16,6 +16,6 @@ public class Restaurant {
     private String name;
     @Embedded
     private Address address;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<DiningTable> diningTables;
 }

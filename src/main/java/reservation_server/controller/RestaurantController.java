@@ -2,7 +2,9 @@ package reservation_server.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import reservation_server.criteria.RestaurantCriteria;
 import reservation_server.domain.Restaurant;
+import reservation_server.exception.NotFoundException;
 import reservation_server.service.RestaurantService;
 
 import java.util.List;
@@ -19,9 +21,15 @@ public class RestaurantController {
         return restaurantService.findAll();
     }
 
+    @GetMapping(value = "/")
+    public List<Restaurant> all(RestaurantCriteria criteria) {
+        return restaurantService.findAll();
+    }
+
     @GetMapping(value = "/{id}")
     public Restaurant one(@PathVariable Long id) {
-        return restaurantService.getOne(id);
+        return this.restaurantService.findById(id)
+                .orElseThrow(() -> new NotFoundException(id));
     }
 
     @PostMapping

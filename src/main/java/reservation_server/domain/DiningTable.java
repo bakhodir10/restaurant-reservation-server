@@ -13,6 +13,8 @@ public class DiningTable {
     @GeneratedValue
     private Long id;
     private int capacity;
+    @OneToOne
+    private Time time;
     @ManyToOne(cascade = CascadeType.ALL)
     private Restaurant restaurant;
 }

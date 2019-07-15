@@ -3,10 +3,12 @@ package reservation_server.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import reservation_server.criteria.RestaurantCriteria;
 import reservation_server.domain.Restaurant;
 import reservation_server.repository.RestaurantRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -19,6 +21,10 @@ public class RestaurantService {
         return restaurantRepository.findAll();
     }
 
+    public List<Restaurant> findAll(RestaurantCriteria criteria) {
+        return restaurantRepository.findAll(criteria);
+    }
+
     public Restaurant getOne(Long id) {
         return this.restaurantRepository.getOne(id);
     }
@@ -29,5 +35,9 @@ public class RestaurantService {
 
     public void deleteById(Long id) {
         this.restaurantRepository.deleteById(id);
+    }
+
+    public Optional<Restaurant> findById(Long id) {
+        return this.restaurantRepository.findById(id);
     }
 }

@@ -1,15 +1,18 @@
 package reservation_server.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.time.LocalTime;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Time {
     @Id
     @GeneratedValue
     private Long id;
-    private LocalTime startTime;
-    private LocalTime endTime;
+    @Temporal(TemporalType.DATE)
+    private LocalDate date;
+    @Temporal(TemporalType.TIME)
+    private Date startTime;
+    @Temporal(TemporalType.TIME)
+    private Date endTime;
 }
