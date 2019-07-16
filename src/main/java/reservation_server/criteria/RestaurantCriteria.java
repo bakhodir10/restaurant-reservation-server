@@ -9,7 +9,7 @@ import java.time.LocalTime;
 @Data
 @ToString
 public class RestaurantCriteria {
-    private String address;
+    private String state;
     private LocalDate date;
     private LocalTime time;
     private int countOfPeople;

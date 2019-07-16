@@ -18,4 +18,6 @@ public class Restaurant {
     private Address address;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<DiningTable> diningTables;
+    @OneToMany
+    private List<Time> times;
 }

@@ -22,7 +22,7 @@ public class RestaurantService {
     }
 
     public List<Restaurant> findAll(RestaurantCriteria criteria) {
-        return restaurantRepository.findAll(criteria);
+        return restaurantRepository.findAll(criteria.getState());
     }
 
     public Restaurant getOne(Long id) {

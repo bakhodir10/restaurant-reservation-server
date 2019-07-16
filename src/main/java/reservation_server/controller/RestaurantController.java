@@ -17,16 +17,11 @@ public class RestaurantController {
     private RestaurantService restaurantService;
 
     @GetMapping
-    public List<Restaurant> all() {
-        return restaurantService.findAll();
-    }
-
-    @GetMapping(value = "/")
     public List<Restaurant> all(RestaurantCriteria criteria) {
-        return restaurantService.findAll();
+        return restaurantService.findAll(criteria);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping("/{id}")
     public Restaurant one(@PathVariable Long id) {
         return this.restaurantService.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
@@ -37,12 +32,12 @@ public class RestaurantController {
         return restaurantService.save(newRestaurant);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping("/{id}")
     public Restaurant replaceRestaurant(@PathVariable Long id, @RequestBody Restaurant newRestaurant) {
         return this.restaurantService.save(newRestaurant);
     }
 
-    @PutMapping(value = "/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         restaurantService.deleteById(id);
     }

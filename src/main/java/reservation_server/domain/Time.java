@@ -10,7 +10,7 @@ public class Time {
     @GeneratedValue
     private Long id;
     @Temporal(TemporalType.DATE)
-    private LocalDate date;
+    private Date date;
     @Temporal(TemporalType.TIME)
     private Date startTime;
     @Temporal(TemporalType.TIME)
