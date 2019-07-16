@@ -1,4 +1,4 @@
-package reservation_server.repository;
+package reservation.repository;
 
 public class RestaurantRepository {
 }

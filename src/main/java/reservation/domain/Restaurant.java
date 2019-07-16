@@ -1,4 +1,4 @@
-package reservation_server.domain;
+package reservation.domain;
 
 import javax.persistence.*;
 import java.util.List;

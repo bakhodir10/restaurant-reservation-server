@@ -1,4 +1,4 @@
-package reservation_server.service;
+package reservation.service;
 
 public class RestaurantService {
 }

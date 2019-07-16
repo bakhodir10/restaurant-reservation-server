@@ -1,4 +1,4 @@
-package reservation_server;
+package reservation;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
