@@ -9,35 +9,35 @@ import reservation_server.service.DiningTableService;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:8080")
-@RestController("/dining-tables")
+@RestController
 public class DiningTableController {
 
     @Autowired
     private DiningTableService diningTableService;
 
-//    @GetMapping
-//    public List<DiningTable> all() {
-//        return diningTableService.findAll();
-//    }
+    @GetMapping(value = "/dining-tables")
+    public List<DiningTable> all() {
+        return diningTableService.findAll();
+    }
 
-//    @GetMapping("/{id}")
-//    public DiningTable one(@PathVariable Long id) {
-//        return this.diningTableService.findById(id)
-//                .orElseThrow(() -> new NotFoundException(id));
-//    }
+    @GetMapping(value = "/dining-tables/{id}")
+    public DiningTable one(@PathVariable Long id) {
+        return this.diningTableService.findById(id)
+                .orElseThrow(() -> new NotFoundException(id));
+    }
 
-//    @PostMapping
-//    public DiningTable newDiningTable(@RequestBody DiningTable newDiningTable) {
-//        return diningTableService.save(newDiningTable);
-//    }
+    @PostMapping(value = "/dining-tables")
+    public DiningTable newDiningTable(@RequestBody DiningTable newDiningTable) {
+        return diningTableService.save(newDiningTable);
+    }
 
-//    @PutMapping("/{id}")
-//    public DiningTable replaceDiningTable(@PathVariable Long id, @RequestBody DiningTable newDiningTable) {
-//        return this.diningTableService.save(newDiningTable);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public void delete(@PathVariable Long id) {
-//        diningTableService.deleteById(id);
-//    }
+    @PutMapping(value = "/dining-tables/{id}")
+    public DiningTable replaceDiningTable(@PathVariable Long id, @RequestBody DiningTable newDiningTable) {
+        return this.diningTableService.save(newDiningTable);
+    }
+
+    @DeleteMapping(value = "/dining-tables/{id}")
+    public void delete(@PathVariable Long id) {
+        diningTableService.deleteById(id);
+    }
 }
