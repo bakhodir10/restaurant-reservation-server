@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @NoArgsConstructor
 @Data
@@ -12,9 +14,7 @@ public class DiningTable {
     @Id
     @GeneratedValue
     private Long id;
-    private int capacity;
-    @OneToOne
-    private Time time;
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Restaurant restaurant;
+    private Integer capacity;
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Time> times;
 }
