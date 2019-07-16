@@ -11,7 +11,7 @@ public class Reservation {
     private Long id;
     private LocalDateTime reservationDate;
     private LocalDateTime reservationCancelDate;
-    private int numberOfPeople;
+    private Integer numberOfPeople;
     @ManyToOne
     private Time time;
     @OneToMany

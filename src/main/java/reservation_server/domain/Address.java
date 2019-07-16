@@ -11,6 +11,6 @@ import javax.persistence.Id;
 public class Address {
     private String street;
     private String city;
-    private int zipCode;
+    private Integer zipCode;
     private String state;
 }

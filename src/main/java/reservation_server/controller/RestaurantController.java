@@ -8,6 +8,7 @@ import reservation_server.exception.NotFoundException;
 import reservation_server.service.RestaurantService;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @CrossOrigin(origins = "http://localhost:8080")
@@ -16,6 +17,11 @@ public class RestaurantController {
 
     @Autowired
     private RestaurantService restaurantService;
+
+    @GetMapping(value = "/restaurants/list")
+    public List<Restaurant> all() {
+        return restaurantService.findAll();
+    }
 
     @GetMapping(value = "/restaurants")
     public Set<Restaurant> all(@RequestParam String state,
