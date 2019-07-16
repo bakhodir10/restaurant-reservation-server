@@ -1,4 +1,4 @@
-package reservation.domain;
+package reservation_server.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;

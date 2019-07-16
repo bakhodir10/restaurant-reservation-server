@@ -1,9 +1,9 @@
-package reservation.service;
+package reservation_server.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import reservation.domain.Customer;
-import reservation.repository.CustomerRepository;
+import reservation_server.domain.Customer;
+import reservation_server.repository.CustomerRepository;
 
 import java.util.Optional;
 

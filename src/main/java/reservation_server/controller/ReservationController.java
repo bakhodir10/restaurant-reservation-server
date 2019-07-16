@@ -1,11 +1,11 @@
-package reservation.controller;
+package reservation_server.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import reservation.domain.Customer;
-import reservation.domain.Reservation;
-import reservation.service.CustomerService;
-import reservation.service.ReservationService;
+import reservation_server.domain.Customer;
+import reservation_server.domain.Reservation;
+import reservation_server.service.CustomerService;
+import reservation_server.service.ReservationService;
 
 import javax.validation.Valid;
 import java.util.ArrayList;

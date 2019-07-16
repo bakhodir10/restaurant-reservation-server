@@ -1,9 +1,9 @@
-package reservation.repository;
+package reservation_server.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import reservation.domain.Customer;
-import reservation.domain.Reservation;
+import reservation_server.domain.Customer;
+import reservation_server.domain.Reservation;
 
 import java.util.List;
 
