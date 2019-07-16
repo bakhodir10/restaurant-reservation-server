@@ -2,8 +2,6 @@ package reservation_server.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.List;
@@ -21,4 +19,6 @@ public class Restaurant {
     private Address address;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<DiningTable> diningTables;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Time> availableHours;
 }
