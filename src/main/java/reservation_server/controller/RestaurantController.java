@@ -28,6 +28,7 @@ public class RestaurantController {
                                @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date,
                                @RequestParam("time") @DateTimeFormat(pattern = "hh:mm:ss") Date time,
                                Integer countOfPeople) {
+        System.out.println("countOfPeople = " + countOfPeople);
         return restaurantService.findAll(state, date, time, countOfPeople);
     }
 

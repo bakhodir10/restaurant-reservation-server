@@ -29,7 +29,9 @@ public class LoginController {
     @ResponseStatus(code = HttpStatus.CREATED)
     public String login(@RequestBody User user) {
         String userRole = "";
-       
+
+        System.out.println("ooooooooooooooooooooo");
+
         if (user.getFirstName() == null || user.getFirstName().length() <= 0) {
 
             Optional<User> userOpt = loginService.sign(user.getUsername(), user.getPassword());
@@ -48,18 +50,18 @@ public class LoginController {
 
             }
         } else {
-            User facebookUser=new User();
+            User facebookUser = new User();
             facebookUser.setUsername(user.getUsername());
             facebookUser.setId(generateID());
             return jwtUtil.generateToken(facebookUser, "Customer", true);
         }
     }
-    public Long generateID(){
+
+    public Long generateID() {
         Random r = new Random();
         int low = 456;
         int high = 9898;
-        int result = r.nextInt(high-low) + low;
-        return new Long(result);
+        long result = r.nextInt(high - low) + low;
+        return result;
     }
-
 }
