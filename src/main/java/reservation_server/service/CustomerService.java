@@ -15,4 +15,12 @@ public class CustomerService {
     public Optional<Customer> findById(Long id) {
         return repository.findById(id);
     }
+
+    public Customer findByEmail(String email) {
+        return repository.findByEmail(email);
+    }
+
+    public Customer save(Customer customer) {
+        return this.repository.save(customer);
+    }
 }

@@ -15,6 +15,6 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
             " join fetch r.diningTables tab " +
             " left outer join tab.times tim " +
             " where r.address.state like %:state% " +
-            " and tim.date = :date and tim.endTime <= :startTime")
+            " and tim.date = :date and(:startTime not between tim.startTime and tim.endTime) or tim.date is null")
     Set<Restaurant> findAll(String state, Date date, Date startTime);
 }
