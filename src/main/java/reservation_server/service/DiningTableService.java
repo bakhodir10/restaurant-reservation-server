@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import reservation_server.domain.DiningTable;
 import reservation_server.repository.DiningTableRepository;
+import reservation_server.repository.FileStorageRepository;
 
 import java.util.List;
 import java.util.Optional;

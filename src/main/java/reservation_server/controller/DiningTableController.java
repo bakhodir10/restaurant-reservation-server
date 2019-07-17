@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reservation_server.domain.DiningTable;
 import reservation_server.exception.NotFoundException;
+import reservation_server.repository.FileStorageRepository;
 import reservation_server.service.DiningTableService;
 
 import java.util.List;

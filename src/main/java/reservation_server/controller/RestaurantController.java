@@ -26,9 +26,8 @@ public class RestaurantController {
     @GetMapping(value = "/restaurants")
     public Set<Restaurant> all(@RequestParam String state,
                                @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date,
-                               @RequestParam("startTime") @DateTimeFormat(pattern = "hh:mm:ss") Date startTime,
-                               Integer countOfPeople) {
-        return restaurantService.findAll(state, date, startTime, countOfPeople);
+                               @RequestParam("startTime") @DateTimeFormat(pattern = "hh:mm:ss") Date startTime) {
+        return restaurantService.findAll(state, date, startTime);
     }
 
     @GetMapping(value = "/restaurants/{id}")
