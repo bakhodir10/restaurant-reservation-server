@@ -19,6 +19,6 @@ public class Restaurant {
     private Address address;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<DiningTable> diningTables;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Time> availableHours;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private List<Time> availableHours;
 }

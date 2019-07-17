@@ -2,8 +2,11 @@ package reservation_server.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import reservation_server.domain.Admin;
 import reservation_server.domain.Customer;
 import reservation_server.domain.Reservation;
+import reservation_server.domain.User;
+import reservation_server.repository.UserRepository;
 import reservation_server.service.CustomerService;
 import reservation_server.service.ReservationService;
 
@@ -20,6 +23,9 @@ public class ReservationController {
     @Autowired
     private CustomerService customerService;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @PostMapping("/reservations")
     private Reservation add(@Valid Reservation reservation) {
         return reservationService.save(reservation);
@@ -27,6 +33,9 @@ public class ReservationController {
 
     @GetMapping("/reservations")
     private List<Reservation> getAll() {
+        User user = new Customer();
+
+        userRepository.save(user);
         return reservationService.findAll();
     }
 

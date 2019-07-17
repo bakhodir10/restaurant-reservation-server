@@ -15,6 +15,6 @@ public class DiningTable {
     @GeneratedValue
     private Long id;
     private Integer capacity;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "diningTable")
     private Set<Time> times;
 }

@@ -19,4 +19,6 @@ public class Time {
     private Date startTime;
     @Temporal(TemporalType.TIME)
     private Date endTime;
+    @ManyToOne
+    private DiningTable diningTable;
 }
