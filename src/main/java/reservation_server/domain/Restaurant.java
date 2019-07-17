@@ -2,7 +2,6 @@ package reservation_server.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import reservation_server.repository.FileStorageRepository;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -19,6 +18,6 @@ public class Restaurant {
     private Address address;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<DiningTable> diningTables;
-//    @OneToMany(cascade = CascadeType.ALL)
-//    private List<Time> availableHours;
+    @OneToOne(cascade = CascadeType.ALL)
+    private FileStorage image;
 }
