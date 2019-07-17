@@ -1,13 +1,14 @@
 package reservation_server.domain;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.Data;
 
+import javax.persistence.Embeddable;
+
+@Data
 @Embeddable
 public class Address {
     private String street;
     private String city;
-    private int zipCode;
+    private Integer zipCode;
     private String state;
 }
