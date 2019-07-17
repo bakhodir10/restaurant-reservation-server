@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import reservation_server.domain.Restaurant;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 @Repository
@@ -16,6 +15,6 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
             " join fetch r.diningTables as tab " +
             " join fetch tab.times as tim " +
             " where r.address.state like %:state% " +
-            " and tim.date = :date and tim.endTime < :time")
-    Set<Restaurant> findAll(String state, Date date, Date time);
+            " and tim.date = :date and tim.endTime <= :startTime")
+    Set<Restaurant> findAll(String state, Date date, Date startTime);
 }
