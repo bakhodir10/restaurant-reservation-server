@@ -47,9 +47,12 @@ public class JwtUtil {
     }
 
     public String generateToken(User user, String role,boolean exist){
-        String token="";
+        String uId="2";
+        if(role.toLowerCase().equals("admin")){
+            uId="1";
+        }
         if(exist){
-            return Jwts.builder()
+            return uId+Jwts.builder()
                     .setSubject(user.getUsername())
                     .claim("role",role)
                     .claim("id",user.getId())
