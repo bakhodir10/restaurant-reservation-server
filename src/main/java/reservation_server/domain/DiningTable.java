@@ -7,6 +7,8 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -17,7 +19,7 @@ public class DiningTable {
     @GeneratedValue
     private Long id;
     private int capacity;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "diningTable")
-    @Fetch(FetchMode.SUBSELECT)
-    private Set<Time> times;
+    private LocalDate date;
+    private LocalTime startTime;
+    private LocalTime endTime;
 }
