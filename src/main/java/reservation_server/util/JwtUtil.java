@@ -9,6 +9,7 @@ import reservation_server.domain.User;
 
 import java.security.Key;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Component
@@ -30,7 +31,7 @@ public class JwtUtil {
 
             List<Object> list = Jwts.parser().setSigningKey(this.getKey())
                     .parseClaimsJws(token).getBody().entrySet().stream()
-                    .filter( entry -> entry.getKey().equals("role"))
+                    .filter( entry -> entry.getKey().equals("randomId"))
                     .map(value -> value.getValue()).collect(Collectors.toList());
              list.stream().forEach(System.out::println);
 
@@ -54,13 +55,20 @@ public class JwtUtil {
         if(exist){
             return uId+Jwts.builder()
                     .setSubject(user.getUsername())
-                    .claim("role",role)
+                    .claim("randomId",generateID())
                     .claim("id",user.getId())
                     .signWith(this.getKey())
                     .compact();
         }else{
             return "";
         }
+    }
+    public Long generateID() {
+        Random r = new Random();
+        int low = 456;
+        int high = 989856;
+        long result = r.nextInt(high - low) + low;
+        return result;
     }
 
 
