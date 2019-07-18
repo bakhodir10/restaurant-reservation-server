@@ -18,6 +18,6 @@ public class Restaurant {
     private Address address;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<DiningTable> diningTables;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private FileStorage image;
 }
