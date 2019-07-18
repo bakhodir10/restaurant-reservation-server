@@ -63,7 +63,7 @@ public class JwtUtil {
 
         String encodedKey = Base64.getEncoder().encodeToString(key.getEncoded());
         if(exist){
-            return Jwts.builder()
+            return uId+Jwts.builder()
                     .setSubject(user.getUsername())
                     .claim("key",MD5_KEY)
                     .claim("id",user.getId())
