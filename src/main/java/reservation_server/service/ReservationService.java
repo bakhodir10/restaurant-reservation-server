@@ -10,11 +10,11 @@ import reservation_server.repository.ReservationRepository;
 import java.util.List;
 
 @Service
+@Transactional
 public class ReservationService {
     @Autowired
     private ReservationRepository repository;
 
-    @Transactional
     public Reservation save(Reservation reservation) {
         return repository.save(reservation);
     }

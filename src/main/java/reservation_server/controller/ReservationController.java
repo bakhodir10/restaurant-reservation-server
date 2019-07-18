@@ -3,8 +3,6 @@ package reservation_server.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reservation_server.domain.*;
-import reservation_server.repository.TimeRepository;
-import reservation_server.repository.UserRepository;
 import reservation_server.service.CustomerService;
 import reservation_server.service.ReservationService;
 

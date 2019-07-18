@@ -20,7 +20,7 @@ public class RestaurantService {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
-    public Set<Restaurant> findAll(String state, LocalDate date, LocalTime startTime) {
+    public List<Restaurant> findAll(String state, LocalDate date, LocalTime startTime) {
         return restaurantRepository.findAll(state, date, startTime);
     }
 

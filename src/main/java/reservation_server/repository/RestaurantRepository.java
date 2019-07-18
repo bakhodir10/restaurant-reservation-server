@@ -8,15 +8,16 @@ import reservation_server.domain.Restaurant;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
     @Query("from Restaurant r " +
-            " join fetch r.diningTables tab " +
-            " left outer join tab.times tim " +
-            " where r.address.state like %:state% " +
-            " and tim.date = :date and(:startTime not between tim.startTime and tim.endTime) or tim.date is null order by r.name desc")
-    Set<Restaurant> findAll(String state, LocalDate date, LocalTime startTime);
+            " join fetch r.diningTables tab" +
+            " where r.address.state like :state " +
+            " and tab.date is null or tab.date <> :date or (tab.date = :date and(:startTime not between tab.startTime and tab.endTime)) order by r.name desc")
+    List<Restaurant> findAll(String state, LocalDate date, LocalTime startTime);
+
 }

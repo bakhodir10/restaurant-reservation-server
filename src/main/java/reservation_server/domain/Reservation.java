@@ -2,6 +2,8 @@ package reservation_server.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import reservation_server.repository.FileStorageRepository;
 
 import javax.persistence.*;
@@ -21,7 +23,7 @@ public class Reservation {
     @Column(nullable = false)
     private int numberOfPeople;
     @OneToMany
-    private List<DiningTable> tables;
+    private List<DiningTable> diningTables;
     @ManyToOne
     private User createdBy;
     @ManyToOne
