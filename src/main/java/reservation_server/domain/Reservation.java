@@ -20,8 +20,6 @@ public class Reservation {
     private LocalDateTime reservationCancelDate;
     @Column(nullable = false)
     private int numberOfPeople;
-    @ManyToOne
-    private Time time;
     @OneToMany
     private List<DiningTable> tables;
     @ManyToOne

@@ -1,13 +1,3 @@
-insert into time(start_time,end_time) values ( '8:00:00','9:00:00' );
-insert into time(start_time,end_time) values ( '9:00:00','10:00:00' );
-insert into time(start_time,end_time) values ( '10:00:00','11:00:00' );
-insert into time(start_time,end_time) values ( '11:00:00','12:00:00' );
-insert into time(start_time,end_time) values ( '12:00:00','13:00:00' );
-insert into time(start_time,end_time) values ( '13:00:00','14:00:00' );
-insert into time(start_time,end_time) values ( '14:00:00','15:00:00' );
-insert into time(start_time,end_time) values ( '15:00:00','16:00:00' );
-insert into time(start_time,end_time) values ( '16:00:00','17:00:00' );
-insert into time(start_time,end_time) values ( '17:00:00','18:00:00' );
 insert into restaurant (city, state, street, zip_code, name) values ('Fairfiled','IA','1000 NT 4th street',52557,'Anapurna 1');
 insert into restaurant (city, state, street, zip_code, name) values ('Fairfiled','IA','1000 NT 4th street',52557,'Anapurna 2');
 insert into dining_table(capacity) values ( 4 );
