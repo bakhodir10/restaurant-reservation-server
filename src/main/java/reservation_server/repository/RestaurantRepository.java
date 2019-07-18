@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import reservation_server.domain.Restaurant;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.Set;
 
@@ -15,6 +17,6 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
             " join fetch r.diningTables tab " +
             " left outer join tab.times tim " +
             " where r.address.state like %:state% " +
-            " and tim.date = :date and(:startTime not between tim.startTime and tim.endTime) or tim.date is null")
-    Set<Restaurant> findAll(String state, Date date, Date startTime);
+            " and tim.date = :date and(:startTime not between tim.startTime and tim.endTime) or tim.date is null order by r.name desc")
+    Set<Restaurant> findAll(String state, LocalDate date, LocalTime startTime);
 }

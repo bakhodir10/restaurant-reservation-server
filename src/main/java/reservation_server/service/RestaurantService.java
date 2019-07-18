@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import reservation_server.domain.Restaurant;
 import reservation_server.repository.RestaurantRepository;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +20,7 @@ public class RestaurantService {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
-    public Set<Restaurant> findAll(String state, Date date, Date startTime) {
+    public Set<Restaurant> findAll(String state, LocalDate date, LocalTime startTime) {
         return restaurantRepository.findAll(state, date, startTime);
     }
 

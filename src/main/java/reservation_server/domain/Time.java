@@ -2,10 +2,10 @@ package reservation_server.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import reservation_server.repository.FileStorageRepository;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @NoArgsConstructor
 @Data
@@ -14,12 +14,9 @@ public class Time {
     @Id
     @GeneratedValue
     private Long id;
-    @Temporal(TemporalType.DATE)
-    private Date date;
-    @Temporal(TemporalType.TIME)
-    private Date startTime;
-    @Temporal(TemporalType.TIME)
-    private Date endTime;
+    private LocalDate date;
+    private LocalTime startTime;
+    private LocalTime endTime;
     @ManyToOne
     private DiningTable diningTable;
 }

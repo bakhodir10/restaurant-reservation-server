@@ -2,10 +2,8 @@ package reservation_server.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import reservation_server.domain.Admin;
-import reservation_server.domain.Customer;
-import reservation_server.domain.Reservation;
-import reservation_server.domain.User;
+import reservation_server.domain.*;
+import reservation_server.repository.TimeRepository;
 import reservation_server.repository.UserRepository;
 import reservation_server.service.CustomerService;
 import reservation_server.service.ReservationService;
@@ -18,24 +16,20 @@ import java.util.Optional;
 @RestController("/api")
 @CrossOrigin(origins = {"http://localhost:8080"}, maxAge = 6000)
 public class ReservationController {
+
     @Autowired
     private ReservationService reservationService;
     @Autowired
     private CustomerService customerService;
 
-    @Autowired
-    private UserRepository userRepository;
-
     @PostMapping("/reservations")
-    private Reservation add(@Valid Reservation reservation) {
+    private Reservation addReservation(@Valid @RequestBody Reservation reservation) {
+        System.out.println("reservation = " + reservation);
         return reservationService.save(reservation);
     }
 
     @GetMapping("/reservations")
     private List<Reservation> getAll() {
-        User user = new Customer();
-
-        userRepository.save(user);
         return reservationService.findAll();
     }
 

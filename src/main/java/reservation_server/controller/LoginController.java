@@ -30,8 +30,6 @@ public class LoginController {
     public String login(@RequestBody User user) {
         String userRole = "";
 
-        System.out.println("ooooooooooooooooooooo");
-
         if (user.getFirstName() == null || user.getFirstName().length() <= 0) {
 
             Optional<User> userOpt = loginService.sign(user.getUsername(), user.getPassword());

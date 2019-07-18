@@ -3,6 +3,8 @@ package reservation_server.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -16,5 +18,6 @@ public class DiningTable {
     private Long id;
     private int capacity;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "diningTable")
+    @Fetch(FetchMode.SUBSELECT)
     private Set<Time> times;
 }

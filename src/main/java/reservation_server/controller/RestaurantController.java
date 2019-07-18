@@ -7,6 +7,9 @@ import reservation_server.domain.Restaurant;
 import reservation_server.exception.NotFoundException;
 import reservation_server.service.RestaurantService;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -25,9 +28,9 @@ public class RestaurantController {
 
     @GetMapping(value = "/restaurants")
     public Set<Restaurant> all(@RequestParam String state,
-                               @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date,
-                               @RequestParam("startTime") @DateTimeFormat(pattern = "hh:mm:ss") Date startTime) {
-        return restaurantService.findAll(state, date, startTime);
+                               @RequestParam("date") String date,
+                               @RequestParam("startTime") String startTime) {
+        return restaurantService.findAll(state, LocalDate.parse(date), LocalTime.parse(startTime));
     }
 
     @GetMapping(value = "/restaurants/{id}")

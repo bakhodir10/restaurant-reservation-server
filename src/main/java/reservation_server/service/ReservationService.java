@@ -16,7 +16,6 @@ public class ReservationService {
 
     @Transactional
     public Reservation save(Reservation reservation) {
-        int numberOfPeople = reservation.getNumberOfPeople();
         return repository.save(reservation);
     }
 
