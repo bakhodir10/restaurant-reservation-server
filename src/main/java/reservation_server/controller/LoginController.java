@@ -16,7 +16,7 @@ import java.util.Random;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:8080"})
+@CrossOrigin(origins = {"http://localhost:8080"}, maxAge = 6000)
 public class LoginController {
 
     @Autowired
@@ -53,6 +53,12 @@ public class LoginController {
             facebookUser.setId(generateID());
             return jwtUtil.generateToken(facebookUser, "Customer", true);
         }
+    }
+
+    @PostMapping("/check/{token}")
+    public boolean login(@PathVariable String token) {
+        jwtUtil.isGranted(token);
+        return jwtUtil.isGranted(token);
     }
 
     public Long generateID() {
