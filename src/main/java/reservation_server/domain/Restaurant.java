@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -19,6 +18,6 @@ public class Restaurant {
     private Address address;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<DiningTable> diningTables;
-//    @OneToMany(cascade = CascadeType.ALL)
-//    private List<Time> availableHours;
+    @OneToOne(cascade = CascadeType.ALL)
+    private FileStorage image;
 }

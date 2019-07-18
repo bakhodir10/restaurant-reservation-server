@@ -18,8 +18,8 @@ public class RestaurantService {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
-    public Set<Restaurant> findAll(String state, Date date, Date time, Integer countOfPeople) {
-        return restaurantRepository.findAll(state, date, time);
+    public Set<Restaurant> findAll(String state, Date date, Date startTime) {
+        return restaurantRepository.findAll(state, date, startTime);
     }
 
     public List<Restaurant> findAll() {
